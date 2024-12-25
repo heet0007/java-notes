@@ -1,0 +1,281 @@
+
+# Java Notes for Beginners
+
+## Chapter 2: Comments, Variables, and Data Types
+
+### Comments
+- **Single-line Comment**: Use `//` for single-line comments.
+  ```java
+  // This is a single-line comment
+  int number = 5; // Variable declaration
+  ```
+- **Multi-line Comment**: Use `/* */` for multi-line comments.
+  ```java
+  /*
+   * This is a multi-line comment.
+   * It can span multiple lines.
+   */
+  int number = 5;
+  ```
+
+### Variables
+- **Definition**: Variables are used to store data.
+- **Syntax**:
+  ```java
+  type variableName = value;
+  ```
+- Example:
+  ```java
+  int age = 25;
+  ```
+
+### Data Types
+1. **Primitive Data Types**:
+   - Whole numbers: `byte`, `short`, `int`, `long`.
+   - Floating-point numbers: `float`, `double`.
+   - Others: `char` (for single characters), `boolean` (true/false).
+2. **Non-Primitive Data Types**:
+   - `String`: A sequence of characters.
+
+### Example: Sum of Two Numbers
+```java
+public class SumExample {
+    public static void main(String[] args) {
+        int num1 = 10; // First number
+        int num2 = 20; // Second number
+        int sum = num1 + num2; // Calculate sum
+        System.out.println("The sum is: " + sum);
+    }
+}
+```
+
+---
+
+## Chapter 3: Case Sensitivity and Cases
+
+### Case Sensitivity
+- Java is case-sensitive.
+  - Example: `myVariable` and `MyVariable` are different.
+
+### Naming Conventions
+- **PascalCase**: Used for class and interface names. Example:
+  ```java
+  public class MyClass {
+  }
+  ```
+- **camelCase**: Used for variable and method names. Example:
+  ```java
+  int myVariable = 5;
+  ```
+
+### Brackets in Java
+- `()` - **Parentheses**: Used in methods. Example:
+  ```java
+  System.out.println("Hello");
+  ```
+- `{}` - **Curly Brackets**: Define blocks of code. Example:
+  ```java
+  if (true) {
+      System.out.println("Inside block");
+  }
+  ```
+- `[]` - **Square Brackets**: Used in arrays. Example:
+  ```java
+  int[] numbers = {1, 2, 3};
+  ```
+- `<>` - **Angular Brackets**: Used in generics. Example:
+  ```java
+  ArrayList<Integer> list = new ArrayList<>();
+  ```
+
+---
+
+## Chapter 4: Taking Inputs
+
+### Scanner Class
+- Found in the `java.util` package. Used to read user input.
+- Example:
+  ```java
+  import java.util.Scanner;
+
+  public class InputExample {
+      public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
+          System.out.println("Enter a number:");
+          int number = scanner.nextInt();
+          System.out.println("You entered: " + number);
+      }
+  }
+  ```
+
+### Common Methods
+- `nextInt()`, `nextDouble()`: For numeric inputs.
+- `nextLine()`: Reads an entire line.
+- `next()`: Reads a single word.
+- Reading a single character:
+  ```java
+  char ch = scanner.nextLine().charAt(0);
+  ```
+
+### Example: Swap Two Numbers
+1. **Using a Third Variable**:
+   ```java
+   import java.util.Scanner;
+
+   public class SwapNumbers {
+       public static void main(String[] args) {
+           Scanner scanner = new Scanner(System.in);
+           System.out.println("Enter first number:");
+           int num1 = scanner.nextInt();
+           System.out.println("Enter second number:");
+           int num2 = scanner.nextInt();
+
+           // Swap using a third variable
+           int temp = num1;
+           num1 = num2;
+           num2 = temp;
+
+           System.out.println("After swapping: num1 = " + num1 + ", num2 = " + num2);
+       }
+   }
+   ```
+2. **Without a Third Variable**:
+   ```java
+   num1 = num1 + num2;
+   num2 = num1 - num2;
+   num1 = num1 - num2;
+   ```
+
+---
+
+## Chapter 5: Operators
+
+### Types of Operators
+1. **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`, `++`, `--`.
+2. **Relational Operators**: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+3. **Logical Operators**: `&&`, `||`, `!`.
+
+### Example: Basic Arithmetic
+```java
+int a = 10, b = 20;
+System.out.println("Sum: " + (a + b));
+System.out.println("Difference: " + (a - b));
+```
+
+---
+
+## Chapter 6: Math API
+
+### Common Methods
+- `Math.abs(x)`: Absolute value of `x`.
+- `Math.sqrt(x)`: Square root of `x`.
+- `Math.pow(x, y)`: `x` raised to the power of `y`.
+- `Math.max(x, y)`, `Math.min(x, y)`: Maximum or minimum of `x` and `y`.
+
+### Example: Compound Interest
+```java
+double principal = 1000;
+double rate = 5; // in %
+int time = 2; // in years
+double CI = principal * Math.pow((1 + rate / 100), time);
+System.out.println("Compound Interest: " + CI);
+```
+
+---
+
+## Chapter 7: Control Flow
+
+### Conditional Statements
+1. **If-Else Example**:
+   ```java
+   if (num1 > num2) {
+       System.out.println("num1 is greater");
+   } else {
+       System.out.println("num2 is greater");
+   }
+   ```
+2. **Even or Odd Check**:
+   ```java
+   if (num % 2 == 0) {
+       System.out.println("Even");
+   } else {
+       System.out.println("Odd");
+   }
+   ```
+3. **Greatest Among Three Numbers**:
+   ```java
+   if (a > b && a > c) {
+       System.out.println("a is greatest");
+   } else if (b > c) {
+       System.out.println("b is greatest");
+   } else {
+       System.out.println("c is greatest");
+   }
+   ```
+
+---
+
+## Chapter 8: Beginner Project - Calculator Application
+
+### Project Overview
+Create a simple calculator application that can perform basic arithmetic operations such as addition, subtraction, multiplication, and division based on user input.
+
+### Code Example
+```java
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter first number:");
+        double num1 = scanner.nextDouble();
+
+        System.out.println("Enter second number:");
+        double num2 = scanner.nextDouble();
+
+        System.out.println("Choose an operation: +, -, *, /");
+        char operation = scanner.next().charAt(0);
+
+        double result;
+
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case '-':
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case '*':
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("Invalid operation.");
+        }
+    }
+}
+```
+
+### Steps to Run
+1. Copy the code into your Java IDE (e.g., IntelliJ IDEA, Eclipse, or VS Code).
+2. Run the program.
+3. Follow the prompts to enter numbers and select an operation.
+4. View the result.
+
+---
+
+## Next Steps
+- **Learn Loops**: `for`, `while`, `do-while`.
+- **Expand the Calculator**: Add functionality for power (`^`), square root, and modulus (`%`).
+- **Practice Small Projects**: Number guessing game, pattern printing, etc.
